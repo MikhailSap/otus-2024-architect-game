@@ -12,22 +12,22 @@ public class MoveCommandTest {
     @Test
     public void movePositiveTest() {
         Movable movable = new MovableObject(
-                new Vector(12, 5),
-                new Vector(-7, 3)
+                new Vector2(12, 5),
+                new Vector2(-7, 3)
         );
 
         MoveCommand move = new MoveCommand(movable);
         move.execute();
 
-        assertEquals(5, movable.getPosition().getX());
-        assertEquals(8, movable.getPosition().getY());
+        assertEquals(5, ((Vector2)movable.getPosition()).getX());
+        assertEquals(8, ((Vector2)movable.getPosition()).getY());
     }
 
     @Test(expected = UnavailableStateException.class)
     public void getPositionNegativeTest() {
         Movable movable = new MovableObject(
                 null,
-                new Vector(-7, 3)
+                new Vector2(-7, 3)
         );
 
         MoveCommand move = new MoveCommand(movable);
@@ -37,7 +37,7 @@ public class MoveCommandTest {
     @Test(expected = UnavailableStateException.class)
     public void getVelocityNegativeTest() {
         Movable movable = new MovableObject(
-                new Vector(12, 5),
+                new Vector2(12, 5),
                 null
         );
 
