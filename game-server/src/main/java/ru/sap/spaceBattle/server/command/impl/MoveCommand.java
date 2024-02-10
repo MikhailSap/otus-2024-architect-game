@@ -1,6 +1,7 @@
-package ru.sap.spaceBattle.server.command;
+package ru.sap.spaceBattle.server.command.impl;
 
 import ru.sap.spaceBattle.server.Movable;
+import ru.sap.spaceBattle.server.command.ICommand;
 
 public class MoveCommand implements ICommand {
     private final Movable movable;
